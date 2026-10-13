@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf8ff">
+  <meta name="description" content="스포츠 경기분석과 경기력 향상에 관심이 있는 연구자 최선한의 프로필 예시입니다.">
+  <title>최선한 | 스포츠 경기분석 연구자</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0,0" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --canvas: #faf8ff;
+      --white: #fff;
+      --surface-soft: #f2f3ff;
+      --surface: #eaedff;
+      --surface-raised: #e2e7ff;
+      --ink: #131b2e;
+      --body: #434655;
+      --muted: #626a7a;
+      --blue: #004ac6;
+      --blue-bright: #2563eb;
+      --blue-soft: #dbe1ff;
+      --border: #e1e5f7;
+      --green: #14804a;
+      --shadow: 0 1px 3px rgb(19 27 46 / 4%), 0 10px 28px rgb(19 27 46 / 3%);
+      --content: 1240px;
+      font-family: Inter, "Noto Sans KR", sans-serif;
+      scroll-behavior: smooth;
+      scroll-padding-top: 88px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; color: var(--ink); background: var(--canvas); font-size: 16px; line-height: 1.65; }
+    body, button, a { font-family: Inter, "Noto Sans KR", sans-serif; }
+    a { color: inherit; }
+    button { color: inherit; }
+    img { display: block; max-width: 100%; }
+    .material-symbols-outlined { font-size: 22px; line-height: 1; font-variation-settings: "FILL" 0, "wght" 450; }
+    .wrap { width: min(var(--content), calc(100% - 64px)); margin-inline: auto; }
+    .skip-link { position: fixed; z-index: 20; top: 8px; left: 8px; padding: 10px 14px; transform: translateY(-150%); border-radius: 8px; background: var(--blue); color: white; }
+    .skip-link:focus { transform: translateY(0); }
+
+    .site-header { position: sticky; z-index: 10; top: 0; border-bottom: 1px solid rgb(225 229 247 / 75%); background: rgb(255 255 255 / 94%); backdrop-filter: blur(16px); }
+    .header-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; min-height: 72px; gap: 20px; }
+    .brand { display: inline-flex; align-items: center; gap: 11px; width: fit-content; text-decoration: none; font-size: 19px; font-weight: 700; }
+    .brand-mark { display: grid; width: 36px; aspect-ratio: 1; place-items: center; border-radius: 10px; background: var(--blue-bright); color: white; font-size: 14px; letter-spacing: 0; }
+    .main-nav { display: flex; align-items: center; gap: 4px; padding: 5px; border-radius: 999px; background: var(--surface-soft); }
+    .main-nav a { padding: 7px 17px; border-radius: 999px; color: var(--body); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 160ms ease, background 160ms ease; }
+    .main-nav a:hover, .main-nav a[aria-current="location"] { color: var(--blue); background: #e8ecff; }
+    .header-actions { display: flex; align-items: center; justify-content: flex-end; gap: 14px; }
+    .header-contact { display: inline-flex; align-items: center; justify-content: center; min-height: 42px; padding: 0 18px; border-radius: 9px; background: var(--blue); color: white; text-decoration: none; font-size: 14px; font-weight: 600; transition: background 160ms ease; }
+    .header-contact:hover, .button-primary:hover { background: #003ea8; }
+    .avatar-link { width: 38px; aspect-ratio: 1; overflow: hidden; border: 2px solid white; border-radius: 50%; box-shadow: 0 0 0 1px var(--border); }
+    .avatar-link img { width: 100%; height: 100%; object-fit: cover; }
+    .menu-toggle { display: none; width: 42px; height: 42px; place-items: center; border: 1px solid var(--border); border-radius: 9px; background: white; cursor: pointer; }
+
+    main { overflow: hidden; }
+    .hero { position: relative; display: grid; min-height: 650px; grid-template-columns: minmax(0, 1.35fr) minmax(300px, .85fr); align-items: center; gap: clamp(40px, 7vw, 100px); padding-block: 78px 88px; }
+    .hero::before, .hero::after { position: absolute; z-index: -1; width: 400px; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, rgb(219 225 255 / 42%), rgb(219 225 255 / 0%) 70%); content: ""; pointer-events: none; }
+    .hero::before { top: -90px; right: -80px; }
+    .hero::after { bottom: -120px; left: -190px; }
+    .hero-copy { position: relative; }
+    .status { display: inline-flex; align-items: center; gap: 10px; max-width: 100%; padding: 7px 14px; border: 1px solid var(--border); border-radius: 999px; background: #f4f5ff; color: var(--body); font-size: 14px; font-weight: 500; }
+    .status-dot { width: 10px; aspect-ratio: 1; flex: 0 0 auto; border-radius: 50%; background: var(--blue-bright); box-shadow: 0 0 0 5px #dbe5ff; }
+    h1 { margin: 25px 0 8px; font-size: clamp(44px, 5vw, 66px); line-height: 1.12; font-weight: 700; }
+    h1 span { display: inline-block; margin-left: 8px; color: #59616c; font-size: .52em; font-weight: 400; }
+    .hero-title { max-width: 720px; margin: 18px 0; color: var(--blue); font-size: clamp(26px, 3vw, 37px); line-height: 1.38; font-weight: 700; }
+    .hero-intro { max-width: 710px; margin: 0; color: var(--body); font-size: 18px; line-height: 1.8; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .button { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; gap: 9px; padding: 0 19px; border: 1px solid transparent; border-radius: 10px; text-decoration: none; font-size: 14px; font-weight: 600; transition: background 160ms ease, border-color 160ms ease, transform 160ms ease; }
+    .button:hover { transform: translateY(-1px); }
+    .button-primary { background: var(--blue); color: white; box-shadow: 0 4px 10px rgb(0 74 198 / 16%); }
+    .button-secondary { border-color: var(--border); background: white; color: var(--ink); box-shadow: 0 2px 4px rgb(19 27 46 / 4%); }
+    .button-secondary:hover { border-color: #c4cbe5; background: var(--surface-soft); }
+    .skills { margin-top: 34px; }
+    .eyebrow { margin: 0 0 10px; color: var(--muted); font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+    .skill-list, .tag-list { display: flex; flex-wrap: wrap; gap: 8px; }
+    .skill, .tag { display: inline-flex; align-items: center; min-height: 29px; padding: 3px 12px; border-radius: 999px; background: #e8ebff; color: #12316e; font-size: 12px; font-weight: 500; }
+    .hero-portrait { position: relative; justify-self: end; width: min(100%, 420px); aspect-ratio: 1; }
+    .hero-portrait::before { position: absolute; inset: 3% -2% -1% 3%; transform: rotate(6deg); border-radius: 50%; background: var(--blue-soft); content: ""; }
+    .hero-portrait > img { position: relative; width: 100%; height: 100%; border: 5px solid white; border-radius: 50%; object-fit: cover; box-shadow: 0 14px 36px rgb(19 27 46 / 12%); }
+    .experience-badge { position: absolute; right: 53%; bottom: 5%; display: flex; min-width: 240px; align-items: center; gap: 12px; padding: 12px 15px; border: 1px solid var(--border); border-radius: 14px; background: rgb(255 255 255 / 96%); box-shadow: 0 12px 24px rgb(19 27 46 / 13%); }
+    .badge-icon, .section-icon { display: grid; flex: 0 0 auto; place-items: center; border-radius: 10px; background: #e5eaff; color: var(--blue); }
+    .badge-icon { width: 44px; height: 44px; }
+    .experience-badge strong, .experience-badge span { display: block; }
+    .experience-badge strong { font-size: 17px; line-height: 1.35; }
+    .experience-badge span:last-child { color: var(--muted); font-size: 11px; }
+
+    .content-section { padding-block: 96px; border-top: 1px solid rgb(225 229 247 / 75%); }
+    .section-heading { margin-bottom: 36px; }
+    .section-kicker { display: inline-flex; margin-bottom: 12px; padding: 3px 12px; border-radius: 999px; background: var(--blue-soft); color: #12316e; font-size: 12px; font-weight: 700; }
+    .section-heading h2 { margin: 0; font-size: clamp(30px, 4vw, 42px); line-height: 1.2; }
+    .section-heading p { margin: 9px 0 0; color: var(--muted); font-size: 17px; }
+    .about-grid { display: grid; grid-template-columns: .85fr 1.2fr; gap: 24px; }
+    .about-stack { display: grid; gap: 22px; }
+    .panel { border: 1px solid var(--border); border-radius: 16px; background: var(--white); box-shadow: var(--shadow); }
+    .panel-pad { padding: 28px; }
+    .panel-heading { display: flex; align-items: center; gap: 12px; margin-bottom: 22px; }
+    .section-icon { width: 42px; height: 42px; }
+    .panel-heading h3 { margin: 0; font-size: 18px; line-height: 1.35; }
+    .panel-heading p { margin: 2px 0 0; color: var(--muted); font-size: 11px; }
+    .education h4 { margin: 0 0 5px; color: var(--blue); font-size: 16px; }
+    .education .degree { margin: 0 0 13px; color: var(--body); font-size: 13px; font-weight: 600; }
+    .education .description, .philosophy p:last-child, .timeline-item > p:last-child { margin: 0; color: var(--body); font-size: 13px; line-height: 1.8; }
+    .philosophy { border-color: transparent; background: var(--blue); color: white; }
+    .philosophy .panel-heading { justify-content: space-between; margin-bottom: 13px; }
+    .philosophy .panel-heading p { color: rgb(255 255 255 / 78%); font-size: 13px; }
+    .philosophy blockquote { margin: 0 0 12px; font-size: 20px; font-weight: 700; line-height: 1.5; }
+    .philosophy p:last-child { color: rgb(255 255 255 / 88%); }
+    .timeline { position: relative; display: grid; gap: 25px; padding-left: 23px; }
+    .timeline::before { position: absolute; top: 8px; bottom: 9px; left: 5px; width: 2px; background: var(--surface); content: ""; }
+    .timeline-item { position: relative; }
+    .timeline-item::before { position: absolute; top: 5px; left: -23px; width: 13px; aspect-ratio: 1; border: 3px solid #dce4ff; border-radius: 50%; background: var(--blue); content: ""; }
+    .timeline-top { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+    .timeline-top h4 { margin: 0; font-size: 15px; }
+    .timeline-top time { flex: 0 0 auto; color: var(--blue); font-size: 11px; font-weight: 600; }
+    .timeline-item .company { margin: 3px 0 7px; color: var(--muted); font-size: 12px; font-weight: 500; }
+    .interests { margin-top: 45px; }
+    .interests h3 { margin: 0 0 20px; font-size: 22px; }
+    .interest-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+    .interest { padding: 22px; border: 1px solid var(--border); border-radius: 13px; background: white; transition: transform 180ms ease, box-shadow 180ms ease; }
+    .interest:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+    .interest .section-icon { margin-bottom: 17px; }
+    .interest h4 { margin: 0 0 7px; font-size: 16px; }
+    .interest .tag { min-height: 23px; padding-inline: 9px; border-radius: 5px; font-size: 10px; }
+    .interest p { margin: 12px 0 0; color: var(--muted); font-size: 12px; line-height: 1.75; }
+
+    .project-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: stretch; gap: 22px; }
+    .project-card { display: flex; min-width: 0; flex-direction: column; overflow: hidden; border: 1px solid var(--border); border-radius: 16px; background: white; box-shadow: var(--shadow); color: inherit; text-decoration: none; transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease; }
+    .project-card:hover, .project-card:focus-visible { transform: translateY(-3px); border-color: #bac8f3; box-shadow: 0 14px 30px rgb(19 27 46 / 9%); }
+    .project-art { display: flex; min-height: 200px; flex-direction: column; justify-content: space-between; padding: 20px; background: linear-gradient(135deg, #dbe1ff, #f4f5ff 75%); }
+    .project-card:nth-child(2) .project-art { background: linear-gradient(135deg, #d8e2ff, #f3f6ff 75%); }
+    .project-card:nth-child(3) .project-art { background: linear-gradient(135deg, #dce3ec, #f4f5ff 75%); }
+    .art-top { display: flex; align-items: center; justify-content: space-between; }
+    .art-label, .art-symbol { display: inline-grid; min-height: 29px; place-items: center; padding: 3px 11px; border-radius: 999px; background: white; color: var(--blue); font-size: 11px; font-weight: 600; }
+    .art-symbol { width: 36px; height: 36px; padding: 0; color: var(--ink); }
+    .mini-chart { padding: 12px 14px 8px; border-radius: 12px; background: rgb(255 255 255 / 91%); box-shadow: 0 3px 10px rgb(19 27 46 / 5%); }
+    .mini-chart-head { display: flex; justify-content: space-between; color: var(--muted); font-size: 10px; }
+    .mini-chart-head strong { color: var(--blue); }
+    .bars { display: flex; height: 44px; align-items: end; justify-content: center; gap: 8px; padding-top: 6px; }
+    .bars i { width: 12px; border-radius: 3px 3px 0 0; background: #7ea3ee; }
+    .bars i:nth-child(1) { height: 40%; }.bars i:nth-child(2) { height: 60%; }.bars i:nth-child(3) { height: 48%; }.bars i:nth-child(4) { height: 78%; }.bars i:nth-child(5) { height: 58%; }.bars i:nth-child(6) { height: 89%; background: var(--blue); }.bars i:nth-child(7) { height: 100%; }.bars i:nth-child(8) { height: 86%; background: #477bd8; }
+    .line-chart { width: 100%; height: 44px; color: var(--blue-bright); }
+    .ai-preview { display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: 12px; background: rgb(255 255 255 / 92%); }
+    .ai-tile { display: grid; width: 42px; height: 42px; flex: 0 0 auto; place-items: center; border-radius: 9px; background: var(--blue-soft); color: var(--blue); font-size: 13px; font-weight: 700; }
+    .ai-lines { display: grid; flex: 1; gap: 7px; }.ai-lines i { height: 7px; border-radius: 9px; background: var(--surface-raised); }.ai-lines i:last-child { width: 65%; background: var(--surface-soft); }
+    .ai-score { padding: 5px 8px; border-radius: 6px; background: var(--surface-soft); color: var(--blue); font-size: 10px; font-weight: 700; }
+    .project-info { display: flex; flex: 1; flex-direction: column; padding: 21px; }
+    .project-info .tag-list { margin-bottom: 13px; gap: 6px; }
+    .project-info .tag { min-height: 24px; padding-inline: 9px; border-radius: 5px; font-size: 10px; }
+    .project-info h3 { margin: 0 0 10px; font-size: 18px; line-height: 1.45; transition: color 160ms ease; }
+    .project-card:hover h3 { color: var(--blue); }
+    .project-info > p { margin: 0 0 17px; color: var(--body); font-size: 12px; line-height: 1.8; }
+    .metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin-top: auto; padding: 12px; border: 1px solid var(--border); border-radius: 10px; background: var(--surface-soft); }
+    .metrics span, .metrics strong { display: block; }.metrics span { color: var(--muted); font-size: 10px; }.metrics strong { font-size: 15px; }.metrics div:first-child strong { color: var(--blue); }
+    .project-cta { display: flex; align-items: center; gap: 7px; margin-top: 17px; color: var(--blue); font-size: 13px; font-weight: 700; }
+
+    .contact-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 24px; }
+    .contact-main, .social-panel { display: flex; flex-direction: column; padding: 30px; }
+    .contact-main h3, .social-panel h3 { margin: 0 0 6px; font-size: 22px; }
+    .contact-main > p, .social-panel > p { margin: 0 0 23px; color: var(--body); font-size: 13px; line-height: 1.8; }
+    .email-row { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 13px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface-soft); }
+    .email-address { display: inline-flex; min-width: 0; align-items: center; gap: 9px; color: var(--ink); text-decoration: none; }
+    .email-address .material-symbols-outlined { color: var(--blue); }
+    .email-address span:last-child { overflow-wrap: anywhere; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 13px; }
+    .email-actions { display: flex; flex: 0 0 auto; gap: 7px; }
+    .icon-button { display: inline-grid; width: 42px; height: 42px; place-items: center; border: 1px solid var(--border); border-radius: 9px; background: white; color: var(--ink); cursor: pointer; }
+    .icon-button:hover { background: var(--surface); }
+    .icon-button.send { border-color: var(--blue); background: var(--blue); color: white; text-decoration: none; }
+    .response-note { display: flex; align-items: center; gap: 8px; margin-top: auto; padding-top: 22px; border-top: 1px solid var(--border); color: var(--muted); font-size: 12px; }
+    .response-note .material-symbols-outlined { color: var(--blue); }
+    .social-list { display: grid; gap: 3px; }
+    .social-link { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px; border-radius: 10px; text-decoration: none; transition: background 150ms ease; }
+    .social-link:hover { background: var(--surface-soft); }
+    .social-label { display: flex; min-width: 0; align-items: center; gap: 11px; }
+    .social-monogram { display: grid; width: 36px; height: 36px; flex: 0 0 auto; place-items: center; border-radius: 9px; background: #e8edff; color: var(--blue); font-size: 11px; font-weight: 700; }
+    .social-label strong, .social-label small { display: block; }.social-label strong { font-size: 12px; }.social-label small { color: var(--muted); font-size: 10px; }
+    .social-link > .material-symbols-outlined { color: var(--muted); font-size: 18px; }
+    .back-top { display: inline-flex; align-items: center; align-self: flex-end; gap: 5px; margin-top: 17px; color: var(--muted); font-size: 11px; text-decoration: none; }
+    .back-top:hover { color: var(--blue); }
+    .site-footer { padding-block: 28px; border-top: 1px solid var(--border); background: white; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .footer-brand { display: flex; align-items: center; gap: 9px; font-size: 14px; font-weight: 700; }
+    .footer-brand .brand-mark { width: 30px; border-radius: 8px; }
+    .footer-inner p { margin: 0; color: var(--muted); font-size: 11px; text-align: center; }
+    .footer-nav { display: flex; gap: 16px; }.footer-nav a { color: var(--body); font-size: 11px; text-decoration: none; }.footer-nav a:hover { color: var(--blue); }
+    :focus-visible { outline: 3px solid rgb(37 99 235 / 38%); outline-offset: 3px; }
+
+    @media (max-width: 900px) {
+      .wrap { width: min(var(--content), calc(100% - 44px)); }
+      .header-inner { grid-template-columns: 1fr auto; }
+      .header-actions { grid-column: 2; grid-row: 1; }
+      .main-nav { position: absolute; top: calc(100% + 8px); right: 22px; left: 22px; display: none; align-items: stretch; flex-direction: column; padding: 9px; border: 1px solid var(--border); border-radius: 13px; background: white; box-shadow: 0 12px 28px rgb(19 27 46 / 12%); }
+      .main-nav.is-open { display: flex; }
+      .main-nav a { padding: 11px 13px; border-radius: 8px; }
+      .menu-toggle { display: grid; }
+      .avatar-link { display: none; }
+      .hero { min-height: auto; grid-template-columns: minmax(0, 1fr) minmax(230px, .75fr); gap: 36px; padding-block: 72px; }
+      .hero-portrait { width: min(100%, 340px); }
+      .experience-badge { right: 35%; min-width: 215px; }
+      .about-grid { grid-template-columns: 1fr; }
+      .interest-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .project-card:last-child { grid-column: 1 / -1; }
+      .project-card:last-child .project-art { min-height: 180px; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .footer-inner { flex-wrap: wrap; }
+    }
+    @media (max-width: 620px) {
+      :root { scroll-padding-top: 76px; }
+      .wrap { width: calc(100% - 36px); }
+      .header-inner { min-height: 64px; }
+      .brand { gap: 8px; font-size: 16px; }
+      .brand-mark { width: 32px; border-radius: 9px; }
+      .header-contact { min-height: 39px; padding-inline: 13px; font-size: 12px; }
+      .header-actions { gap: 8px; }
+      .main-nav { right: 18px; left: 18px; }
+      .hero { grid-template-columns: 1fr; gap: 42px; padding-block: 54px 66px; }
+      .status { font-size: 12px; }
+      h1 { margin-top: 21px; font-size: 44px; }
+      h1 span { display: block; margin: 5px 0 0; font-size: 23px; }
+      .hero-title { margin-top: 17px; font-size: 27px; }
+      .hero-intro { font-size: 15px; }
+      .hero-actions { display: grid; grid-template-columns: 1fr; margin-top: 23px; }
+      .hero-actions .button { width: 100%; }
+      .skills { margin-top: 27px; }
+      .hero-portrait { justify-self: center; width: min(80vw, 330px); }
+      .experience-badge { right: 27%; bottom: 2%; min-width: 205px; padding: 9px 11px; }
+      .badge-icon { width: 38px; height: 38px; }
+      .content-section { padding-block: 66px; }
+      .section-heading { margin-bottom: 27px; }
+      .section-heading h2 { font-size: 31px; }
+      .section-heading p { font-size: 14px; }
+      .panel-pad { padding: 21px; }
+      .timeline-top { align-items: flex-start; flex-direction: column; gap: 0; }
+      .timeline-top time { order: -1; margin-bottom: 3px; }
+      .interest-grid, .project-grid { grid-template-columns: 1fr; }
+      .project-card:last-child { grid-column: auto; }
+      .project-art, .project-card:last-child .project-art { min-height: 185px; }
+      .interests { margin-top: 36px; }
+      .contact-main, .social-panel { padding: 22px; }
+      .email-row { align-items: stretch; flex-direction: column; }
+      .email-address span:last-child { font-size: 12px; }
+      .email-actions { justify-content: flex-end; }
+      .footer-inner { align-items: flex-start; flex-direction: column; }
+      .footer-inner p { text-align: left; }
+      .footer-nav { flex-wrap: wrap; gap: 13px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">본문으로 건너뛰기</a>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#home" aria-label="최선한 홈">
+        <span class="brand-mark" aria-hidden="true">최</span>
+        <span>최선한</span>
+      </a>
+      <nav class="main-nav" id="primary-navigation" aria-label="주요 메뉴">
+        <a href="#home" aria-current="location">홈</a>
+        <a href="#about">소개</a>
+        <a href="#projects">프로젝트</a>
+        <a href="#contact">연락처</a>
+      </nav>
+      <div class="header-actions">
+        <a class="header-contact" href="#contact">연락하기</a>
+        <a class="avatar-link" href="#home" aria-label="프로필로 이동">
+          <img src="/images/profile.jpg" alt="최선한 프로필 사진">
+        </a>
+        <button class="menu-toggle" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="primary-navigation">
+          <span class="material-symbols-outlined" aria-hidden="true">menu</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="wrap hero" id="home" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <div class="status"><span class="status-dot" aria-hidden="true"></span>스포츠 경기분석·경기력 향상 연구자 · 프로필 예시</div>
+        <h1 id="hero-title">최선한</h1>
+        <p class="hero-title">스포츠 경기분석과 경기력 향상에 관심이 있는 연구자</p>
+        <p class="hero-intro">스포츠 데이터 분석과 전략 연구를 바탕으로 경기 흐름과 선수 퍼포먼스를 살펴보고, 분석 결과를 실제 경기 현장에 적용하는 방법을 탐구합니다.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#projects"><span class="material-symbols-outlined" aria-hidden="true">visibility</span>프로젝트 둘러보기</a>
+          <a class="button button-secondary" href="mailto:hong@example.com?subject=%EC%97%B0%EA%B5%AC%20%EB%AC%B8%EC%9D%98"><span class="material-symbols-outlined" aria-hidden="true">mail</span>이메일 보내기</a>
+        </div>
+        <div class="skills">
+          <p class="eyebrow">Core Competencies</p>
+          <div class="skill-list">
+            <span class="skill">스포츠 데이터 분석</span><span class="skill">스포츠 전략</span><span class="skill">생성형 AI</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-portrait">
+        <img src="/images/profile.jpg" alt="최선한 프로필 사진">
+        <div class="experience-badge">
+          <span class="badge-icon material-symbols-outlined" aria-hidden="true">verified</span>
+          <span><strong>Sports Research</strong><span>관심 연구 분야 · 예시</span></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap content-section" id="about" aria-labelledby="about-title">
+      <div class="section-heading">
+        <span class="section-kicker">소개</span>
+        <h2 id="about-title">About Me</h2>
+        <p>데이터와 전략을 바탕으로 스포츠 경기력 향상의 가능성을 탐구합니다.</p>
+      </div>
+      <div class="about-grid">
+        <div class="about-stack">
+          <article class="panel panel-pad education">
+            <div class="panel-heading">
+              <span class="section-icon material-symbols-outlined" aria-hidden="true">school</span>
+              <div><h3>학력 &amp; 전공</h3><p>Academic Foundation · 예시</p></div>
+            </div>
+            <h4>스포츠과학 및 데이터 분석</h4>
+            <p class="degree">세부 전공 및 학위 정보는 예시</p>
+            <p class="description">경기 데이터와 스포츠 과학을 연결해 선수와 팀의 경기력에 영향을 주는 요인을 분석합니다.</p>
+          </article>
+          <article class="panel panel-pad philosophy">
+            <div class="panel-heading"><p>Research Focus</p><span class="material-symbols-outlined" aria-hidden="true">psychology</span></div>
+            <blockquote>“데이터에서 경기력 향상의 단서를 찾다”</blockquote>
+            <p>분석 결과를 실제 경기 맥락과 연결해 실행 가능한 전략으로 발전시키는 것을 중요하게 생각합니다.</p>
+          </article>
+        </div>
+        <article class="panel panel-pad">
+          <div class="panel-heading">
+            <span class="section-icon material-symbols-outlined" aria-hidden="true">work_history</span>
+            <div><h3>경력 타임라인</h3><p>Professional Journey · 예시</p></div>
+          </div>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-top"><h4>스포츠 경기 데이터 분석</h4><time>연구 활동 · 예시</time></div>
+              <p class="company">팀 경기 분석 프로젝트 · 예시</p>
+              <p class="description">경기 기록과 전술 지표를 바탕으로 팀의 경기 흐름과 전략적 선택을 분석합니다.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-top"><h4>선수 퍼포먼스 분석</h4><time>연구 활동 · 예시</time></div>
+              <p class="company">선수 움직임·기록 분석 · 예시</p>
+              <p class="description">선수별 경기 지표를 살펴보고 포지션과 역할에 따른 퍼포먼스 특성을 탐구합니다.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-top"><h4>경기 현장 전략 적용</h4><time>연구 활동 · 예시</time></div>
+              <p class="company">실제 경기 적용 사례 · 예시</p>
+              <p class="description">데이터 분석에서 도출한 전술 가설을 경기 상황에 적용하고 결과를 검토합니다.</p>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="interests">
+        <h3>전문 분야</h3>
+        <div class="interest-grid">
+          <article class="interest"><span class="section-icon material-symbols-outlined" aria-hidden="true">bar_chart</span><h4>스포츠 데이터 분석</h4><span class="tag">Sports Data</span><p>경기 기록과 퍼포먼스 지표에서 팀과 선수의 특성을 읽어냅니다.</p></article>
+          <article class="interest"><span class="section-icon material-symbols-outlined" aria-hidden="true">sports</span><h4>스포츠 전략</h4><span class="tag">Sports Strategy</span><p>경기 상황과 상대 특성을 고려한 전략 및 전술을 탐구합니다.</p></article>
+          <article class="interest"><span class="section-icon material-symbols-outlined" aria-hidden="true">auto_awesome</span><h4>생성형 AI</h4><span class="tag">Generative AI</span><p>생성형 AI를 활용한 스포츠 데이터 분석과 경기력 연구의 가능성을 살펴봅니다.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap content-section" id="projects" aria-labelledby="projects-title">
+      <div class="section-heading">
+        <span class="section-kicker">프로젝트</span>
+        <h2 id="projects-title">Featured Projects</h2>
+        <p>스포츠 경기 분석과 경기력 향상을 위한 연구 프로젝트 · 예시</p>
+      </div>
+      <div class="project-grid">
+        <a class="project-card" href="mailto:hong@example.com?subject=%EC%8A%A4%ED%8F%AC%EC%B8%A0%20%EA%B2%BD%EA%B8%B0%20%EB%B6%84%EC%84%9D%20%EB%AC%B8%EC%9D%98" aria-label="스포츠 경기 분석 프로젝트 문의 메일 보내기">
+          <div class="project-art">
+            <div class="art-top"><span class="art-label">Match Analysis</span><span class="art-symbol material-symbols-outlined" aria-hidden="true">sports_soccer</span></div>
+            <div class="mini-chart"><div class="mini-chart-head"><span>경기 주요 지표</span><strong>분석 예시</strong></div><div class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+          </div>
+          <div class="project-info">
+            <div class="tag-list"><span class="tag">경기 분석</span><span class="tag">전술</span><span class="tag">데이터</span></div>
+            <h3>스포츠 경기 분석</h3>
+            <p>경기 기록과 주요 플레이 데이터를 분석해 팀의 흐름과 전술적 특징을 살펴보는 프로젝트입니다.</p>
+            <div class="metrics"><div><span>분석 대상 경기 · 예시</span><strong>경기 데이터</strong></div><div><span>분석 초점 · 예시</span><strong>팀 전술</strong></div></div>
+            <span class="project-cta">케이스 스터디 보기 <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></span>
+          </div>
+        </a>
+        <a class="project-card" href="mailto:hong@example.com?subject=%EC%84%A0%EC%88%98%20%ED%8D%BC%ED%8F%AC%EB%A8%BC%EC%8A%A4%20%EB%B6%84%EC%84%9D%20%EB%AC%B8%EC%9D%98" aria-label="선수 퍼포먼스 분석 프로젝트 문의 메일 보내기">
+          <div class="project-art">
+            <div class="art-top"><span class="art-label">Player Performance</span><span class="art-symbol material-symbols-outlined" aria-hidden="true">monitoring</span></div>
+            <div class="mini-chart"><div class="mini-chart-head"><span>선수 퍼포먼스 지표</span><strong>분석 예시</strong></div><svg class="line-chart" viewBox="0 0 180 48" fill="none" aria-hidden="true"><path d="M4 37L34 28L66 33L98 15L130 20L174 5" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 37L34 28L66 33L98 15L130 20L174 5V47H4V37Z" fill="currentColor" fill-opacity=".1"/></svg></div>
+          </div>
+          <div class="project-info">
+            <div class="tag-list"><span class="tag">선수 분석</span><span class="tag">퍼포먼스</span><span class="tag">스포츠 데이터</span></div>
+            <h3>선수 퍼포먼스 분석</h3>
+            <p>선수의 경기 지표와 움직임 데이터를 살펴보고 퍼포먼스 특성과 경기 기여도를 분석합니다.</p>
+            <div class="metrics"><div><span>분석 단위 · 예시</span><strong>선수별 지표</strong></div><div><span>분석 목표 · 예시</span><strong>경기력 향상</strong></div></div>
+            <span class="project-cta">케이스 스터디 보기 <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></span>
+          </div>
+        </a>
+        <a class="project-card" href="mailto:hong@example.com?subject=%EC%8B%A4%EC%A0%9C%20%EA%B2%BD%EA%B8%B0%20%EC%A0%81%EC%9A%A9%20%EB%AC%B8%EC%9D%98" aria-label="실제 경기 적용 프로젝트 문의 메일 보내기">
+          <div class="project-art">
+            <div class="art-top"><span class="art-label">Matchday Application</span><span class="art-symbol material-symbols-outlined" aria-hidden="true">sports</span></div>
+            <div class="ai-preview"><span class="ai-tile">AI</span><span class="ai-lines" aria-hidden="true"><i></i><i></i></span><span class="ai-score">경기</span></div>
+          </div>
+          <div class="project-info">
+            <div class="tag-list"><span class="tag">현장 적용</span><span class="tag">스포츠 전략</span><span class="tag">생성형 AI</span></div>
+            <h3>실제 경기 적용</h3>
+            <p>분석에서 도출한 전술 인사이트를 실제 경기 상황에 적용하고 활용 가능성을 검토하는 프로젝트입니다.</p>
+            <div class="metrics"><div><span>적용 내용 · 예시</span><strong>전술 인사이트</strong></div><div><span>적용 맥락 · 예시</span><strong>실제 경기</strong></div></div>
+            <span class="project-cta">케이스 스터디 보기 <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="wrap content-section" id="contact" aria-labelledby="contact-title">
+      <div class="section-heading">
+        <span class="section-kicker">연락처</span>
+        <h2 id="contact-title">Get in Touch</h2>
+        <p>새로운 프로젝트나 협업 기회는 언제든 환영합니다.</p>
+      </div>
+      <div class="contact-grid">
+        <article class="panel contact-main">
+          <span class="section-icon material-symbols-outlined" aria-hidden="true">mail</span>
+          <h3>직접 연락하기</h3>
+          <p>스포츠 분석 연구와 협업에 관한 문의는 이메일로 연락해 주세요.</p>
+          <div class="email-row">
+            <a class="email-address" href="mailto:hong@example.com" aria-label="hong@example.com으로 이메일 보내기"><span class="material-symbols-outlined" aria-hidden="true">alternate_email</span><span>hong@example.com</span></a>
+            <div class="email-actions">
+              <button class="icon-button" id="copy-email" type="button" aria-label="이메일 주소 복사" title="이메일 주소 복사"><span class="material-symbols-outlined" aria-hidden="true">content_copy</span></button>
+              <a class="icon-button send" href="mailto:hong@example.com" aria-label="메일 작성창 열기" title="메일 작성창 열기"><span class="material-symbols-outlined" aria-hidden="true">send</span></a>
+            </div>
+          </div>
+          <p class="response-note"><span class="material-symbols-outlined" aria-hidden="true">schedule</span>보통 1일 이내 응답 · 한국어/영어 커뮤니케이션 가능 · 예시</p>
+        </article>
+        <article class="panel social-panel">
+          <span class="section-icon material-symbols-outlined" aria-hidden="true">share</span>
+          <h3>소셜 &amp; 포트폴리오 채널</h3>
+          <p>아래 프로필 링크는 예시입니다. 본인의 계정으로 변경해 주세요.</p>
+          <div class="social-list">
+            <a class="social-link" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"><span class="social-label"><span class="social-monogram">in</span><span><strong>LinkedIn</strong><small>/in/choi-seonhan · 예시</small></span></span><span class="material-symbols-outlined" aria-hidden="true">north_east</span></a>
+            <a class="social-link" href="https://github.com/" target="_blank" rel="noopener noreferrer"><span class="social-label"><span class="social-monogram">GH</span><span><strong>GitHub</strong><small>github.com/choi-seonhan · 예시</small></span></span><span class="material-symbols-outlined" aria-hidden="true">north_east</span></a>
+            <a class="social-link" href="https://www.behance.net/" target="_blank" rel="noopener noreferrer"><span class="social-label"><span class="social-monogram">Bē</span><span><strong>Behance</strong><small>behance.net/choi-seonhan · 예시</small></span></span><span class="material-symbols-outlined" aria-hidden="true">north_east</span></a>
+          </div>
+          <a class="back-top" href="#home"><span class="material-symbols-outlined" aria-hidden="true">arrow_upward</span>맨 위로 이동</a>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <a class="footer-brand" href="#home"><span class="brand-mark" aria-hidden="true">최</span>최선한</a>
+      <p>© <span id="year">2026</span> 최선한. 개인 프로필 예시 페이지입니다.</p>
+      <nav class="footer-nav" aria-label="푸터 메뉴"><a href="#home">홈</a><a href="#about">소개</a><a href="#projects">프로젝트</a><a href="#contact">연락처</a></nav>
+    </div>
+  </footer>
+
+  <script>
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navigation = document.querySelector(".main-nav");
+
+    menuToggle.addEventListener("click", () => {
+      const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
+      menuToggle.setAttribute("aria-expanded", String(!isExpanded));
+      menuToggle.setAttribute("aria-label", isExpanded ? "메뉴 열기" : "메뉴 닫기");
+      navigation.classList.toggle("is-open", !isExpanded);
+    });
+
+    navigation.addEventListener("click", (event) => {
+      if (event.target.closest("a")) {
+        navigation.classList.remove("is-open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "메뉴 열기");
+      }
+    });
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        document.querySelectorAll('.main-nav a[href^="#"]').forEach((link) => {
+          if (link.hash === `#${entry.target.id}`) {
+            link.setAttribute("aria-current", "location");
+          } else {
+            link.removeAttribute("aria-current");
+          }
+        });
+      }
+    }, { rootMargin: "-30% 0px -60% 0px" });
+
+    document.querySelectorAll("main section[id]").forEach((section) => sectionObserver.observe(section));
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    document.getElementById("copy-email").addEventListener("click", async (event) => {
+      const email = "hong@example.com";
+      const button = event.currentTarget;
+      try {
+        await navigator.clipboard.writeText(email);
+        button.title = "복사 완료";
+        button.setAttribute("aria-label", "이메일 주소 복사 완료");
+        button.querySelector(".material-symbols-outlined").textContent = "check";
+      } catch {
+        window.location.href = `mailto:${email}`;
+      }
+    });
+  </script>
+</body>
+</html>
